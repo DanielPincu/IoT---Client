@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 id="temp">Please wait...</h1>
+
+<script>
+const el = document.getElementById("temp");
+
+const ws = new WebSocket("wss://iot-server-yp8e.onrender.com");
+
+ws.onmessage = (e) => {
+  const data = JSON.parse(e.data);
+  if (data.type === "temp") {
+    el.innerText = data.value + " C";
+  }
+};
+</script>
+
+</body>
+</html>
