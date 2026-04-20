@@ -17,11 +17,22 @@ ws.onmessage = (e) => {
   bubble.innerText = "🟢";
   setTimeout(() => {
     bubble.innerText = "⚪";
-  }, 200);
+  }, 50);
 };
 </script>
 
 </body>
 </html>
 
-<!-- npx wscat -c wss://iot-server-yp8e.onrender.com -->
+<!-- 
+
+npx wscat -c wss://iot-server-yp8e.onrender.com 
+
+-->
+
+<!-- 
+
+(new WebSocket("wss://iot-server-yp8e.onrender.com"))
+  .addEventListener("open", e => e.target.send("50")); 
+
+  -->
