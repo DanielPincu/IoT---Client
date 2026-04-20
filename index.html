@@ -3,16 +3,25 @@
 <body>
 
 <h1 id="here">Please wait...</h1>
+<span id="bubble">⚪</span>
 
 <script>
 const el = document.getElementById("here");
+const bubble = document.getElementById("bubble");
 
 const ws = new WebSocket("wss://iot-server-yp8e.onrender.com");
 
 ws.onmessage = (e) => {
   el.innerText = e.data;
+
+  bubble.innerText = "🟢";
+  setTimeout(() => {
+    bubble.innerText = "⚪";
+  }, 200);
 };
 </script>
 
 </body>
 </html>
+
+<!-- npx wscat -c wss://iot-server-yp8e.onrender.com -->
