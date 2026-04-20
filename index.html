@@ -10,10 +10,7 @@ const el = document.getElementById("here");
 const ws = new WebSocket("wss://iot-server-yp8e.onrender.com");
 
 ws.onmessage = (e) => {
-  const data = JSON.parse(e.data);
-  if (data.type === "payload") {
-    el.innerText = data.value;
-  }
+  el.innerText = e.data;
 };
 </script>
 
